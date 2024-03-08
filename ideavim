@@ -1,0 +1,97 @@
+" Plug
+set surround
+set commentary
+set easymotion
+set which-key
+set highlightedyank
+set exchange
+set NERDTree
+set argtextobj
+
+" options
+set showmode
+set showcmd
+set ignorecase
+set notimeout
+set ideajoin
+set ideamarks
+set incsearch
+set scrolloff=10
+
+let mapleader=" "
+let g:WhichKey_FontSize = 16
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+" close tab
+nnoremap <leader>w :q!<cr>
+
+" switch tabs
+nnoremap <tab> :tabnext<cr>
+nnoremap <s-tab> :tabprev<cr>
+
+" code indent
+xnoremap < <gv
+xnoremap > >gv
+
+" code reformat
+nnoremap <leader>cf :action ReformatCode<cr>
+xnoremap <leader>cf :action ReformatCode<cr>
+nnoremap == :action ReformatCode<cr><esc>
+xnoremap = gq
+
+" rename
+nnoremap <leader>rn :action RenameElement<cr>
+xnoremap <leader>rn :action RenameElement<cr>
+
+" refactor
+nnoremap <leader>rf :action Refactorings.QuickListPopupAction<cr>
+xnoremap <leader>rf :action Refactorings.QuickListPopupAction<cr>
+
+" reload all from disk
+nnoremap <leader>rl :action Synchronize<cr>
+xnoremap <leader>rl :action Synchronize<cr>
+
+" searching
+nnoremap <leader>fl :action FindInPath<cr>
+xnoremap <leader>fl :action FindInPath<cr>
+nnoremap <leader>fa :action SearchEverywhere<cr>
+xnoremap <leader>fa :action SearchEverywhere<cr>
+nnoremap <leader>ff :action RecentFiles<cr>
+xnoremap <leader>ff :action RecentFiles<cr>
+nnoremap `` :action RecentLocations<cr>
+
+" motion
+nnoremap gd :action GotoDeclaration<cr>
+nnoremap gi :action GotoImplementation<cr>
+nnoremap gj :action Forward<cr>
+nnoremap gk :action Back<cr>
+nnoremap ge :action GotoNextError<cr>
+nnoremap gh :action ShowHoverInfo<cr>
+nnoremap g[ :action VcsShowNextChangeMarker<cr>
+nnoremap g] :action VcsShowPrevChangeMarker<cr>
+nnoremap <leader>ca :action ShowIntentionActions<cr>
+
+" easymotion
+nmap f <plug>(easymotion-s)
+xmap f <plug>(easymotion-s)
+
+" NERDTree
+nmap <leader>fe :NERDTree<cr>
+
+" copy to system clipboard
+nnoremap <leader>y :let @+=@0<cr>
+" set clipboard^=unnamed,unnamedplus
+" set clipboard+=ideaput
+
+" debug
+nnoremap <leader>d :action Debug<cr>
+nnoremap <leader>b :action ToggleLineBreakpoint<cr>
+nnoremap <leader>q :action StepOver<cr>
+nnoremap <leader>e :action RunToCursor<cr>
+nnoremap <leader>a :action Resume<cr>
+nnoremap <leader>s :action StepInto<cr>
+nnoremap <leader>t :action Debugger.StepOutOfBlock<cr>
+
+" other
+nnoremap <leader>ha :action HideActiveWindow<cr>
+nnoremap <leader>` :action SelectInProjectView<cr>
