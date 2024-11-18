@@ -1,0 +1,100 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 30
+
+# Timeout for commands executed by starship (in milliseconds)
+command_timeout = 500
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# global format
+format = """
+($cmd_duration)\
+$directory\
+$git_branch\
+$git_commit\
+$git_status\
+$git_state\
+$character\
+"""
+right_format = ""
+
+# The name of the module we are configuring is "character"
+[character]
+disabled = false
+# The "success_symbol" segment is being set to "➜" with the color "bold green"
+success_symbol = "[➜](bold green)"
+# The "error_symbol" segment is being set to "✗" with the color "bold red"
+error_symbol = "[✗](bold red)"
+
+[cmd_duration]
+disabled = false
+min_time = 2_000
+show_milliseconds = false
+style = "bold yellow"
+format = "\n[take time:](bold white) [$duration]($style)\n"
+show_notifications = false
+
+[directory]
+disabled = false
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "···"
+style = "#BD93F9"
+read_only = " "
+read_only_style = "#FFB86C"
+format = "[$path]($style)[$read_only]($read_only_style) "
+repo_root_style = "#BD93F9"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+home_symbol = "~"
+use_os_path_sep = true
+
+[git_branch]
+disabled = false
+always_show_remote = false
+symbol = " "
+style = "#007ACC"
+format = "[\\($symbol]($style)[$branch(:$remote_branch)](bold red)[\\)]($style) "
+only_attached = false
+ignore_branches = []
+
+[git_status]
+disabled = false
+ignore_submodules = false
+conflicted = "✗"
+ahead = "${count} "
+behind = "${count} "
+diverged = "${ahead_count}${behind_count} "
+up_to_date = ""
+untracked = "?"
+stashed = ""
+modified = "~"
+staged = "+"
+renamed = ""
+deleted = "-"
+format = """
+[$ahead_behind](bold yellow)\
+(\\[[$conflicted](bold red)\
+[$stashed](bold yellow)\
+[$deleted](bold red)\
+[$renamed](bold yellow)\
+[$modified](bold cyan)\
+[$staged](bold green)\
+[$untracked](bold red)\\] )\
+"""
+
+[git_state]
+disabled = false
+style = "bold yellow"
+format = "[\\($state( $progress_current/$progress_total)\\)]($style) "
+
+[git_commit]
+disabled = false
+tag_disabled = false
+tag_symbol = ""
+style = "#007ACC"
+commit_hash_length = 8
+format = "[\\($symbol]($style)([$tag](bold red) )[$hash\\)]($style) "
