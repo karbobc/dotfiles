@@ -67,8 +67,10 @@ nnoremap <leader>fl :action FindInPath<cr>
 xnoremap <leader>fl :action FindInPath<cr>
 nnoremap <leader>fa :action SearchEverywhere<cr>
 xnoremap <leader>fa :action SearchEverywhere<cr>
-nnoremap <leader>ff :action RecentFiles<cr>
-xnoremap <leader>ff :action RecentFiles<cr>
+nnoremap <leader>ff :action GotoFile<cr>
+xnoremap <leader>ff :action GotoFile<cr>
+nnoremap <leader>fe :action RecentFiles<cr>
+xnoremap <leader>fe :action RecentFiles<cr>
 nnoremap `` :action RecentLocations<cr>
 
 " motion
