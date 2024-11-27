@@ -29,6 +29,8 @@ disabled = false
 success_symbol = "[➜](bold green)"
 # The "error_symbol" segment is being set to "✗" with the color "bold red"
 error_symbol = "[✗](bold red)"
+# The format string used before the text input if the shell is in vim normal mode
+vimcmd_symbol = "[V](bold green)"
 
 [cmd_duration]
 disabled = false
