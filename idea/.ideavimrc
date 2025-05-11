@@ -108,3 +108,4 @@ nnoremap <leader>t :action Debugger.StepOutOfBlock<cr>
 " other
 nnoremap <leader>ha :action HideActiveWindow<cr>
 nnoremap <leader>` :action SelectInProjectView<cr>
+nnoremap <c-p> :action ParameterInfo<cr>
